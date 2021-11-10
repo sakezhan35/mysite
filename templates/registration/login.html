@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% if form.errors %}
+		<div>
+			Ваше имя пользователя и пароль не совпадают. <br> Пожалуйста, попробуйте еще раз.
+		</div>
+	{% endif %}
+	<form method="post" action="">
+		{% csrf_token %}
+		Введите логин <br>
+		{{ form.username }} <br>
+		Введите пароль <br>
+		{{ form.password }}
+		<input type="submit" value="Подтвердить">
+		<input type="hidden" name="next" value="{{ next }}">
+	</form>
+</body>
+</html>
